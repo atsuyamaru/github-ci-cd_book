@@ -2,7 +2,7 @@ name: Naming
 on: push
 jobs:
   print-names:
-    names: Super Useful Job
+    name: Super Useful Job
     runs-on: ubuntu-latest
     steps:
       - name: Amazing Script
