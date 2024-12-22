@@ -1,0 +1,10 @@
+name: Schedule
+on:
+  schedule:
+    - cron: '0 19 * * *'
+jobs:
+  schedule-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
+      - run: echo "It's 19:00"
