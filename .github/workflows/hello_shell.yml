@@ -1,0 +1,11 @@
+name: Hello from Shell
+on: push
+defaults:
+  run:
+    shell: bash
+jobs:
+  hello_shell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: echo "Hello, world!"
