@@ -12,5 +12,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Comment
 	run: gh pr comment "{$GITHUB_HEAD_REF}" --body "Hello, "{$GITHUB_ACTOR}"
-	env:
-	  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+	env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
