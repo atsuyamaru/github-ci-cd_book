@@ -1,0 +1,37 @@
+name: Pass variable via github_output
+
+on:
+  push:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  pass_var:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: fetch repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run generate_var.py
+        id: generate_var
+        run: |
+          python generate_var.py
+
+      - name: Set output as a variable and Run get_var.py
+        env: 
+          PYTHON_TIMESTAMP: ${{ steps.generate_var.outputs.timestamp }}
+        run: python get_var.py
