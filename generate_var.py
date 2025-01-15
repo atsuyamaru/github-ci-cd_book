@@ -4,7 +4,7 @@ import os
 
 
 def generate_var(date: datetime.datetime, zone: ZoneInfo) -> str:
-    value = date.astimezone(zone).strftime("%Y%m%d%H%M%S")
+    value = date.astimezone(zone).strftime("%Y-%m-%d_%H-%M")
     # # Print special GitHub Actions syntax to set output
     # print(f"::set-output name=timestamp::{value}")
     # For newer GitHub Actions (>= 2022), you can also use this syntax:
